@@ -103,7 +103,7 @@ frontend/
 ## 🎯 Core Functionality
 
 ### Chat Interface
-- **Main Chat Page**: Located at `/chat/flight` (redirects from root `/`)
+- **Main Chat Page**: Located at `/chat` (redirects from root `/`)
 - **AI Assistant**: Provides flight coupon assistance and recommendations
 - **Message History**: Maintains conversation context
 - **Real-time Responses**: Fetches AI responses from backend API
@@ -115,7 +115,7 @@ frontend/
 - Includes menu icon for navigation
 - Fixed header with consistent styling
 
-#### 2. **Chat Interface** (`app/chat/flight/page.js`)
+#### 2. **Chat Interface** (`app/chat/page.js`)
 - Interactive chat with AI assistant
 - Auto-scrolling message container
 - Dynamic textarea with auto-resize
@@ -223,7 +223,7 @@ The application expects a backend API endpoint that:
 
 ### Backend Integration
 - Update `NEXT_PUBLIC_BACKEND_URL` environment variable
-- Modify API call in `app/chat/flight/page.js` if needed
+- Modify API call in `app/chat/page.js` if needed
 - Add error handling and loading states as required
 
 ## 🐛 Troubleshooting
