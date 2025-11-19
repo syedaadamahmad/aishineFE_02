@@ -1,5 +1,9 @@
-@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap');
 
+
+@import "tailwindcss";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -44,9 +48,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-main{
+main {
   scrollbar-width: thin;
 }
+
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -64,15 +69,14 @@ main{
   animation: gradientMove 10s ease infinite;
 }
 
-
 /* Hide scrollbar utility class */
 .scrollbar-hide {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* WebKit */
+  display: none;
 }
 
 @keyframes gradientFloat {
@@ -92,8 +96,6 @@ main{
   animation: gradientFloat 10s ease infinite;
 }
 
-
-
 .animate-infinite-scroll {
   animation-name: infinite-scroll;
   animation-duration: 40s;
@@ -104,7 +106,7 @@ main{
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.996 0.007 88.5); 
+  --background: oklch(0.996 0.007 88.5);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -178,4 +180,67 @@ main{
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Markdown prose dark mode */
+.dark .prose {
+  --tw-prose-body: rgb(229 231 235);
+  --tw-prose-headings: rgb(243 244 246);
+  --tw-prose-links: rgb(96 165 250);
+  --tw-prose-bold: rgb(243 244 246);
+  --tw-prose-code: rgb(196 181 253);
+}
+.prose code {
+  background-color: var(--color-muted);
+  color: var(--color-accent-foreground);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.375rem;
+}
+@keyframes gradientFloat {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradientFloat {
+  background-size: 200% 200%;
+  animation: gradientFloat 5s ease-in-out infinite;
+}
+/* Radial gradient animation */
+@keyframes gradientRadial {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 150% 150%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  background-size: 100% 100%;
+  animation: gradientRadial 4s ease-in-out infinite;
 }
